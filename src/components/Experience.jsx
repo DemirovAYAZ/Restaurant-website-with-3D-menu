@@ -2,6 +2,7 @@ import { Environment, Float, OrbitControls } from "@react-three/drei";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
+import { TOUCH } from "three";
 import { Book } from "./Book";
 import { zoomLevelAtom } from "./UI";
 export const Experience = () => {
@@ -41,9 +42,9 @@ export const Experience = () => {
         minPolarAngle={isMobile ? Math.PI / 2 : 0}
         maxPolarAngle={isMobile ? Math.PI / 2 : Math.PI}
         touches={{
-          ONE: isMobile ? 2 : 1, 
-          TWO: isMobile ? 1 : 2, 
-          THREE: 0
+          ONE: isMobile ? TOUCH.ROTATE : TOUCH.ROTATE,
+          TWO: isMobile ? TOUCH.DOLLY_PAN : TOUCH.DOLLY_PAN,
+          THREE: false
         }}
       />
       <Environment preset="studio"></Environment>
