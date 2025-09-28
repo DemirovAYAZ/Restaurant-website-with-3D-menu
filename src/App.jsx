@@ -1,22 +1,22 @@
-import { Loader } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { Experience } from "./components/Experience";
-import { UI } from "./components/UI";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { ImageSlider } from "./components/ImageSlider";
+import { AboutSection } from "./components/AboutSection";
+import { ContactSection } from "./components/ContactSection";
+import { MenuBook3D } from "./components/MenuBook3D";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <UI />
-      <Loader />
-      <Canvas shadows camera={{ position: [-0.5, 1, 4], fov: 45 }}>
-        <group position-y={0}>
-          <Suspense fallback={null}>
-            <Experience />
-          </Suspense>
-        </group>
-      </Canvas>
-    </>
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <ImageSlider />
+      <MenuBook3D />
+      <ContactSection />
+      <Footer />
+    </div>
   );
 }
 
