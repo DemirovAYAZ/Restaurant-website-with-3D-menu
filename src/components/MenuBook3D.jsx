@@ -27,7 +27,7 @@ export const MenuBook3D = () => {
         <UI />
         <Loader />
         <Canvas shadows camera={{ position: cameraPosition, fov: cameraFov }}>
-          <group position-y={0.5}>
+          <group position-y={0}>
             <Suspense fallback={null}>
               <Experience />
             </Suspense>
