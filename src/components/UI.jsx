@@ -78,7 +78,7 @@ export const UI = () => {
           </div>
         </div>
         
-        <div className="absolute right-6 top-1/2 transform -translate-y-1/2 pointer-events-auto">
+        <div className="absolute right-6 top-1/2 transform -translate-y-1/2 pointer-events-auto hidden md:block">
           <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center gap-2 min-w-[60px]">
             <div className="text-white text-xs font-medium mb-2">
               {zoomLevel}%

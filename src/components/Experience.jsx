@@ -20,26 +20,27 @@ export const Experience = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   const baseDistance = 4;
-  const zoomDistance = baseDistance * (100 / zoomLevel);
+  const mobileScale = isMobile ? 1.5 : 1; // Make menu appear smaller on mobile
+  const zoomDistance = baseDistance * (100 / zoomLevel) * mobileScale;
 
   useEffect(() => {
     const direction = camera.position.clone().normalize();
     camera.position.copy(direction.multiplyScalar(zoomDistance));
     camera.lookAt(0, 0, 0);
-  }, [zoomLevel, camera]);
+  }, [zoomLevel, camera, isMobile]);
 
   return (
     <>
       <Book />
       <OrbitControls 
-        minDistance={1} 
-        maxDistance={10} 
-        enableZoom={false}
+        minDistance={isMobile ? 3 : 1} 
+        maxDistance={isMobile ? 8 : 10} 
+        enableZoom={isMobile}
         enablePan={false}
         enableRotate={!isMobile}
         touches={{
           ONE: isMobile ? false : undefined,
-          TWO: false,
+          TWO: isMobile ? undefined : false,
           THREE: false
         }}
       />
