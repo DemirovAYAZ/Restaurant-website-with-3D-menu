@@ -35,15 +35,15 @@ export const Experience = () => {
       <OrbitControls 
         minDistance={isMobile ? 3 : 1} 
         maxDistance={isMobile ? 8 : 10} 
-        enableZoom={isMobile}
+        enableZoom={true}
         enablePan={false}
         enableRotate={true}
         minPolarAngle={isMobile ? Math.PI / 2 : 0}
         maxPolarAngle={isMobile ? Math.PI / 2 : Math.PI}
         touches={{
-          ONE: isMobile ? undefined : undefined,
-          TWO: isMobile ? undefined : false,
-          THREE: false
+          ONE: isMobile ? 2 : 1, 
+          TWO: isMobile ? 1 : 2, 
+          THREE: 0
         }}
       />
       <Environment preset="studio"></Environment>
