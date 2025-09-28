@@ -35,14 +35,16 @@ export const Experience = () => {
       <OrbitControls 
         minDistance={isMobile ? 3 : 1} 
         maxDistance={isMobile ? 8 : 10} 
-        enableZoom={isMobile}
+        enableZoom={true}
         enablePan={false}
         enableRotate={!isMobile}
         touches={{
           ONE: isMobile ? false : undefined,
-          TWO: isMobile ? undefined : false,
+          TWO: isMobile ? undefined : undefined,
           THREE: false
         }}
+        enableTouchZoom={isMobile}
+        enableTouchRotate={!isMobile}
       />
       <Environment preset="studio"></Environment>
       <directionalLight
