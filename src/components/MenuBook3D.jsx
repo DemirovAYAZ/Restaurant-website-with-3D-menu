@@ -22,7 +22,11 @@ export const MenuBook3D = () => {
   const cameraFov = isMobile ? 50 : 45;
 
   return (
-    <section id="menu" data-section="menu-book" className="relative min-h-screen bg-black">
+    <section 
+      id="menu" 
+      data-section="menu-book" 
+      className={`relative bg-black ${isMobile ? 'h-[80vh]' : 'min-h-screen'}`}
+    >
       <div className="absolute inset-0 z-10">
         <UI />
         <Loader />

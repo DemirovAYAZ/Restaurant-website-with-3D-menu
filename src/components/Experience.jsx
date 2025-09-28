@@ -20,7 +20,7 @@ export const Experience = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   const baseDistance = 4;
-  const mobileScale = isMobile ? 1.5 : 1; // Make menu appear smaller on mobile
+  const mobileScale = isMobile ? 1.5 : 1;
   const zoomDistance = baseDistance * (100 / zoomLevel) * mobileScale;
 
   useEffect(() => {
@@ -35,16 +35,16 @@ export const Experience = () => {
       <OrbitControls 
         minDistance={isMobile ? 3 : 1} 
         maxDistance={isMobile ? 8 : 10} 
-        enableZoom={true}
+        enableZoom={isMobile}
         enablePan={false}
-        enableRotate={!isMobile}
+        enableRotate={true}
+        minPolarAngle={isMobile ? Math.PI / 2 : 0}
+        maxPolarAngle={isMobile ? Math.PI / 2 : Math.PI}
         touches={{
-          ONE: isMobile ? false : undefined,
-          TWO: isMobile ? undefined : undefined,
+          ONE: isMobile ? undefined : undefined,
+          TWO: isMobile ? undefined : false,
           THREE: false
         }}
-        enableTouchZoom={isMobile}
-        enableTouchRotate={!isMobile}
       />
       <Environment preset="studio"></Environment>
       <directionalLight
