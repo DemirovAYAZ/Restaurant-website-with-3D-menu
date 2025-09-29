@@ -36,7 +36,7 @@ export const Experience = () => {
       <OrbitControls 
         minDistance={isMobile ? 3 : 1} 
         maxDistance={isMobile ? 8 : 10} 
-        enableZoom={true}
+        enableZoom={isMobile}
         enablePan={false}
         enableRotate={true}
         minPolarAngle={isMobile ? Math.PI / 2 : 0}
